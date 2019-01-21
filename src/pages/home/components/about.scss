@@ -22,6 +22,14 @@
     position: absolute;
     right: 0;
   }
+  .sub-text {
+    font-size: 25px;
+    font-weight: 300;
+    position: absolute;
+    top: calc(40% - 50px);
+    left: 20%;
+    color: rgba(0, 0, 0, 0.5);
+  }
   .about-text {
     position: absolute;
     top: calc(40% + 200px);
