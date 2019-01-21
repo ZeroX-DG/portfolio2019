@@ -1,0 +1,36 @@
+.about {
+  color: black;
+  font-family: "Lora";
+  position: relative;
+  .name {
+    font-size: 50px;
+    font-weight: 300;
+    position: absolute;
+    top: 40%;
+    left: 20%;
+  }
+  .overflow-image {
+    position: fixed;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 0;
+  }
+  .avatar {
+    height: 100vh;
+    position: absolute;
+    right: 0;
+  }
+  .about-text {
+    position: absolute;
+    top: calc(40% + 200px);
+    left: 20%;
+    font-size: 20px;
+    width: 600px;
+    line-height: 1.8em;
+    .title {
+      font-weight: 300;
+    }
+  }
+}

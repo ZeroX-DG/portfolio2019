@@ -1,0 +1,28 @@
+{
+  "name": "portfolio2019",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel public/index.html",
+    "build": "parcel build public/index.html"
+  },
+  "author": "Hung Nguyen <viethungax@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/animejs": "^2.0.1",
+    "@types/react": "^16.7.20",
+    "@types/react-dom": "^16.0.11",
+    "@types/react-router-dom": "^4.3.1",
+    "parcel-bundler": "^1.11.0",
+    "sass": "^1.16.1",
+    "typescript": "^3.2.4"
+  },
+  "dependencies": {
+    "animejs": "^3.0.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-router-dom": "^4.3.1",
+    "vanilla-tilt": "^1.6.1"
+  }
+}
