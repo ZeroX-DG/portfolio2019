@@ -1,0 +1,31 @@
+.right-nav {
+  position: fixed;
+  top: 30%;
+  left: -100%;
+  color: #b2b2b2;
+  font-family: "Lato";
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+      height: 50px;
+      font-size: 18px;
+      position: relative;
+      &.active {
+        color: black;
+        mix-blend-mode: difference;
+        &::before {
+          content: "";
+          height: 1px;
+          width: 40px;
+          position: absolute;
+          top: 10px;
+          left: -50px;
+          background: black;
+          mix-blend-mode: difference;
+        }
+      }
+    }
+  }
+}

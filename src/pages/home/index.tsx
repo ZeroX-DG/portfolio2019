@@ -4,6 +4,7 @@ import "./home.scss";
 
 import Intro from "./components/intro";
 import About from "./components/about";
+import RightNav from "./components/right-nav";
 
 enum Parts {
   INTRO = "intro",
@@ -23,12 +24,12 @@ class Home extends React.Component<{}, IState> {
     document.getElementById("home").onwheel = (e: WheelEvent) => {
       const direction = e.deltaY < 0 ? "up" : "down";
       if (direction === "down") {
-        this.handleScrollDown();
+        this.handleRenderAbout();
       }
     };
   }
 
-  handleScrollDown() {
+  handleRenderAbout() {
     if (this.state.currentPart !== Parts.INTRO) {
       return;
     }
@@ -57,6 +58,12 @@ class Home extends React.Component<{}, IState> {
       }
     });
     anime({
+      targets: ".right-nav",
+      left: "50px",
+      easing: "cubicBezier(0.785, 0.135, 0.15, 0.86)",
+      delay: 1000
+    });
+    anime({
       targets: ".home",
       background: "#FFF",
       duration: 2000,
@@ -68,6 +75,7 @@ class Home extends React.Component<{}, IState> {
     const { currentPart } = this.state;
     return (
       <div className="home" id="home">
+        <RightNav active={currentPart} />
         {currentPart === Parts.INTRO && <Intro />}
         {currentPart === Parts.ABOUT && <About />}
       </div>

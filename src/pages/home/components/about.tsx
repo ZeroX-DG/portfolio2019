@@ -26,7 +26,7 @@ class About extends React.Component {
 
   render() {
     return (
-      <div className="about full-page" id="about">
+      <div className="about" id="about">
         <span className="sub-text">About me</span>
         <span className="name">Hung Nguyen</span>
         <div className="overflow-image">
@@ -52,9 +52,8 @@ class About extends React.Component {
           At the age of 13, while every kid in my school is obsessing with the
           new game called League of Legends, I find myself spending all my time
           learning about programming. Not that I don't like playing games, but
-          because my dad PC is not the gaming type. Therefore, writing
-          instructions for the computer seem to be the only fascinating thing I
-          can do at that time.
+          for me, at that time, writing instructions for the computer seem to be
+          more fascinating than controling a game character.
           <br />
           <br />
           After years of studying programming, my dad decided that he will allow

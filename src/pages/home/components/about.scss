@@ -2,12 +2,14 @@
   color: black;
   font-family: "Lora";
   position: relative;
+  padding-top: 35vh;
+  padding-left: 20%;
+  padding-bottom: 100px;
   .name {
     font-size: 50px;
     font-weight: 300;
-    position: absolute;
-    top: 40%;
-    left: 20%;
+    display: block;
+    margin-bottom: 120px;
   }
   .overflow-image {
     position: fixed;
@@ -25,15 +27,9 @@
   .sub-text {
     font-size: 25px;
     font-weight: 300;
-    position: absolute;
-    top: calc(40% - 50px);
-    left: 20%;
     color: rgba(0, 0, 0, 0.5);
   }
   .about-text {
-    position: absolute;
-    top: calc(40% + 200px);
-    left: 20%;
     font-size: 20px;
     width: 600px;
     line-height: 1.8em;
