@@ -35,14 +35,6 @@ class Home extends React.Component<{}, IState> {
     }
     document.getElementById("intro").style.userSelect = "none";
     anime({
-      targets: ".intro .shape",
-      top: "-100px",
-      opacity: 0,
-      delay: () => anime.random(100, 500),
-      duration: 1000,
-      easing: "cubicBezier(0.785, 0.135, 0.15, 0.86)"
-    });
-    anime({
       targets: ".intro .name, .intro .message",
       top: "-100px",
       opacity: 0,

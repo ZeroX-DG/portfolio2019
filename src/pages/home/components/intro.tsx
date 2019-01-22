@@ -1,5 +1,4 @@
 import React from "react";
-import Tilt from "vanilla-tilt";
 import anime from "animejs";
 import "./intro.scss";
 
@@ -23,12 +22,6 @@ class Intro extends React.PureComponent<{}, IState> {
       top: "0",
       easing: "linear",
       complete: () => this.setState({ animating: false })
-    });
-    Tilt.init(document.getElementsByClassName("floating")[0], {
-      perspective: 3000,
-      reset: false,
-      reverse: true,
-      speed: 5000
     });
   }
 
@@ -66,90 +59,6 @@ class Intro extends React.PureComponent<{}, IState> {
               love what I do.
             </p>
           </div>
-          <div
-            className="shape circle"
-            style={{
-              width: "50px",
-              height: "50px",
-              top: "30px",
-              right: "500px",
-              transform: "translateZ(50px)",
-              backgroundImage:
-                "linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%)"
-            }}
-          />
-          <div
-            className="shape circle"
-            style={{
-              width: "100px",
-              height: "100px",
-              top: "30px",
-              left: "50px",
-              transform: "translateZ(120px)",
-              backgroundImage:
-                "linear-gradient( 135deg, #CE9FFC 10%, #7367F0 100%)"
-            }}
-          />
-          <div
-            className="shape circle"
-            style={{
-              width: "30px",
-              height: "30px",
-              bottom: "100px",
-              left: "100px",
-              transform: "translateZ(30px)",
-              backgroundImage:
-                "linear-gradient( 135deg, #FFF6B7 10%, #F6416C 100%)"
-            }}
-          />
-          <div
-            className="shape octagon"
-            style={{
-              width: "50px",
-              height: "50px",
-              bottom: "-10px",
-              left: "320px",
-              transform: "translateZ(50px)",
-              backgroundImage:
-                "linear-gradient( 135deg, #52E5E7 10%, #130CB7 100%)"
-            }}
-          />
-          <div
-            className="shape triangle"
-            style={{
-              width: "50px",
-              height: "50px",
-              top: "20px",
-              right: "100px",
-              transform: "translateZ(50px)",
-              backgroundImage:
-                "linear-gradient( 135deg, #FEC163 10%, #DE4313 100%)"
-            }}
-          />
-          <div
-            className="shape circle"
-            style={{
-              width: "80px",
-              height: "80px",
-              bottom: "250px",
-              right: "20px",
-              transform: "translateZ(90px)",
-              backgroundImage:
-                "linear-gradient( 135deg, #3C8CE7 10%, #00EAFF 100%)"
-            }}
-          />
-          <div
-            className="shape octagon"
-            style={{
-              width: "100px",
-              height: "100px",
-              bottom: "20px",
-              right: "200px",
-              transform: "translateZ(100px)",
-              backgroundImage:
-                "linear-gradient( 135deg, #FFAA85 10%, #B3315F 100%)"
-            }}
-          />
         </div>
       </div>
     );
