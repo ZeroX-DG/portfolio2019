@@ -13,7 +13,7 @@ class RightNav extends React.Component<IProps> {
       anime({
         targets: ".right-nav .active-bar",
         width: "0px",
-        duration: 500,
+        duration: 400,
         easing: "linear",
         complete: () => {
           const activeEl = document.querySelector(".right-nav .active");
@@ -22,7 +22,7 @@ class RightNav extends React.Component<IProps> {
           anime({
             targets: ".right-nav .active-bar",
             width: "40px",
-            duration: 500,
+            duration: 400,
             easing: "linear"
           });
         }
@@ -32,7 +32,7 @@ class RightNav extends React.Component<IProps> {
   render() {
     const { active } = this.props;
     return (
-      <div className="right-nav">
+      <div className={`right-nav ${active}-section`}>
         <ul>
           <li className={active === "about" ? "active" : ""}>About me</li>
           <li className={active === "work" ? "active" : ""}>Selected works</li>

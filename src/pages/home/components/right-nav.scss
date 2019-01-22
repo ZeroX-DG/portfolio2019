@@ -16,14 +16,17 @@
       cursor: pointer;
       &.active {
         color: black;
-        mix-blend-mode: difference;
       }
+    }
+  }
+  &.work-section {
+    .active {
+      color: white;
     }
   }
   .active-bar {
     width: 0;
     height: 1px;
-    background: black;
     position: fixed;
     left: 0;
   }
