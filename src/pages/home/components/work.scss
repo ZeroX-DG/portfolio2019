@@ -1,0 +1,92 @@
+.work {
+  padding-left: 190px;
+  box-sizing: border-box;
+  color: white;
+  .left-info {
+    width: 35%;
+    height: 100%;
+    position: relative;
+  }
+  .project-display {
+    width: 100%;
+    height: 100%;
+    padding-top: 100px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    .project-name {
+      font-family: "Lato";
+      font-weight: 300;
+      font-size: 50px;
+      height: 60px;
+      overflow: hidden;
+      margin: 0;
+    }
+    .project-description {
+      font-size: 20px;
+      color: white;
+      font-family: "Lora";
+      line-height: 1.8em;
+      margin-top: 50px;
+      margin-left: 20px;
+    }
+    .view-project {
+      border: none;
+      padding: 15px 30px;
+      font-family: "Lato";
+      font-size: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: transparent;
+      color: rgba(255, 255, 255, 0.7);
+      outline: none;
+      cursor: pointer;
+      margin-left: 20px;
+      margin-top: 50px;
+      transition: color 0.3s;
+      &:hover {
+        color: white;
+      }
+    }
+    .project-basic-info {
+      font-family: "Lato";
+      width: 100%;
+      color: rgba(255, 255, 255, 0.7);
+      margin-left: 20px;
+      margin-top: 50px;
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+          display: inline-block;
+          width: calc(100% / 3);
+          .project-info {
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            .label {
+              font-size: 20px;
+              font-weight: bold;
+              margin-bottom: 7px;
+            }
+            .value {
+              font-style: italic;
+              font-family: "Lora";
+            }
+          }
+        }
+      }
+    }
+    .project-image {
+      width: 50%;
+      position: absolute;
+      right: 0;
+      top: 120px;
+      box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+}

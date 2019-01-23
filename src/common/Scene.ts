@@ -1,59 +1,73 @@
+import { Parts } from "../pages/home/common";
+
 export class Scene {
-  public name: string;
+  public name: Parts;
   private manager: SceneManager;
 
-  constructor(name: string, manager: SceneManager) {
+  constructor(name: Parts, manager: SceneManager) {
     this.name = name;
     this.manager = manager;
   }
 
-  next() {
+  next(cb: () => void) {
     const nextScene = this.manager.getNextSceneOf(this.name);
     if (nextScene) {
       const animation = this.manager.getSceneTransitionAnimation(
         this.name,
         nextScene
       );
-      animation();
+      console.log(nextScene);
+      animation(cb);
     }
   }
 
-  previous() {
+  previous(cb: () => void) {
     const previousScene = this.manager.getPreviousSceneOf(this.name);
     if (previousScene) {
       const animation = this.manager.getSceneTransitionAnimation(
         this.name,
         previousScene
       );
-      animation();
+      console.log(previousScene);
+      animation(cb);
     }
   }
 }
 
 export class SceneManager {
-  private scenes: string[];
+  private scenes: Parts[];
   private sceneInstances: Map<string, Scene> = new Map();
-  private transitionAnimations: Map<string, () => void> = new Map();
+  private transitionAnimations: Map<
+    string,
+    (cb: () => void) => void
+  > = new Map();
 
-  getNextSceneOf(scene: string): string | null {
+  getNextSceneOf(scene: Parts): Parts | null {
     const nextIndex = this.scenes.indexOf(scene) + 1;
     return nextIndex < this.scenes.length ? this.scenes[nextIndex] : null;
   }
 
-  getPreviousSceneOf(scene: string): string | null {
+  getPreviousSceneOf(scene: Parts): Parts | null {
     const nextIndex = this.scenes.indexOf(scene) - 1;
     return nextIndex > -1 ? this.scenes[nextIndex] : null;
   }
 
-  getSceneTransitionAnimation(from: string, to: string): () => void {
+  getSceneTransitionAnimation(
+    from: string,
+    to: string
+  ): (cb: () => void) => void {
     return this.transitionAnimations.get(`${from}->${to}`);
   }
 
-  addSceneTransitionAnimation(from: string, to: string, animation: () => void) {
+  addSceneTransitionAnimation(
+    from: string,
+    to: string,
+    animation: (cb: () => void) => void
+  ) {
     this.transitionAnimations.set(`${from}->${to}`, animation);
   }
 
-  setSceneList(list: string[]) {
+  setSceneList(list: Parts[]) {
     this.scenes = list;
   }
 
