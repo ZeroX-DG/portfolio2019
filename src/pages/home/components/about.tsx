@@ -1,7 +1,7 @@
 import * as React from "react";
 import anime from "animejs";
 //@ts-ignore
-import Avatar from "../../../../public/img/avatar.jpg";
+import Avatar from "../../../../static/avatar.jpg";
 import "./about.scss";
 
 class About extends React.Component {
