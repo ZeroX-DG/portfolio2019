@@ -36,9 +36,7 @@ class RightNav extends React.Component<IProps> {
         <ul>
           <li className={active === "about" ? "active" : ""}>About me</li>
           <li className={active === "work" ? "active" : ""}>Selected works</li>
-          <li className={active === "recognitions" ? "active" : ""}>
-            Recognitions
-          </li>
+          <li className={active === "awards" ? "active" : ""}>Awards</li>
           <li className={active === "articles" ? "active" : ""}>Articles</li>
           <li className={active === "contact" ? "active" : ""}>Contact me</li>
         </ul>

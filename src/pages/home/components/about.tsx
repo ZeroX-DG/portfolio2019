@@ -28,7 +28,7 @@ class About extends React.Component {
     return (
       <div className="about" id="about">
         <span className="sub-text">About me</span>
-        <span className="name">Hung Nguyen</span>
+        <span className="name">VietHung Nguyen</span>
         <div className="overflow-image">
           <img
             className="avatar"
@@ -38,7 +38,7 @@ class About extends React.Component {
           />
         </div>
         <div className="about-text">
-          Hi! I'm Hung. I'm a developer who loves web technology.
+          Hi! I'm VietHung. I'm a developer who loves web technology.
           <br />
           <br />
           I was born on October 5, 2001 in Saigon, Vietnam.

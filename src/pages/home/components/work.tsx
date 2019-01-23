@@ -1,10 +1,14 @@
 import * as React from "react";
+//@ts-ignore
+import SnippetStoreIMG from "../../../../static/snippetstore.png";
 
 class Work extends React.Component {
   render() {
     return (
       <div className="work full-page">
-        <h1>Hello</h1>
+        <div className="project-display">
+          <img src={SnippetStoreIMG} className="project-image" />
+        </div>
       </div>
     );
   }

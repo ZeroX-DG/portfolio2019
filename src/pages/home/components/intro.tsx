@@ -28,6 +28,10 @@ class Intro extends React.PureComponent<{}, IState> {
   renderNameParts() {
     return (
       <div className="name">
+        <span className="char">V</span>
+        <span className="char">i</span>
+        <span className="char">e</span>
+        <span className="char">t</span>
         <span className="char">H</span>
         <span className="char">u</span>
         <span className="char">n</span>
@@ -52,11 +56,10 @@ class Intro extends React.PureComponent<{}, IState> {
             {animating ? (
               this.renderNameParts()
             ) : (
-              <div className="name">Hung Nguyen</div>
+              <div className="name">VietHung Nguyen</div>
             )}
             <p className="message">
-              Hi! I'm a <span id="role">web developer</span> from Vietnam and I
-              love what I do.
+              Hi! I'm a <span id="role">web developer</span> from Vietnam.
             </p>
           </div>
         </div>

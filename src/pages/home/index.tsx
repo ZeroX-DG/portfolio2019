@@ -6,12 +6,8 @@ import Intro from "./components/intro";
 import About from "./components/about";
 import Work from "./components/work";
 import RightNav from "./components/right-nav";
-
-enum Parts {
-  INTRO = "intro",
-  ABOUT = "about",
-  WORK = "work"
-}
+import { Parts } from "./common";
+import Scenes from "./animations";
 
 interface IState {
   currentPart: Parts;
@@ -26,7 +22,7 @@ class Home extends React.Component<{}, IState> {
     document.getElementById("home").onwheel = (e: WheelEvent) => {
       const direction = e.deltaY < 0 ? "up" : "down";
       if (direction === "down" && this.state.currentPart === Parts.INTRO) {
-        this.handleTransitionFromIntro();
+        Scenes.getScene(this.state.currentPart).next();
         this.handleRenderAbout();
       }
     };
@@ -37,47 +33,15 @@ class Home extends React.Component<{}, IState> {
         scrollEl.clientHeight + scrollEl.scrollTop === scrollEl.scrollHeight;
       const isScrollBegin = scrollEl.scrollTop === 0;
       // scroll down
-      if (
-        hasScrollBar &&
-        isScrollEnd &&
-        this.state.currentPart === Parts.ABOUT
-      ) {
-        this.handleRenderWork();
+      if (hasScrollBar && isScrollEnd) {
+        Scenes.getScene(this.state.currentPart).next();
       }
 
       // scroll up
-      if (
-        hasScrollBar &&
-        isScrollBegin &&
-        this.state.currentPart === Parts.WORK
-      ) {
-        this.handleRenderAbout();
+      if (hasScrollBar && isScrollBegin) {
+        Scenes.getScene(this.state.currentPart).previous();
       }
     };
-  }
-
-  handleTransitionFromIntro() {
-    document.getElementById("intro").style.userSelect = "none";
-    anime({
-      targets: ".intro .name, .intro .message",
-      top: "-100px",
-      opacity: 0,
-      delay: 500,
-      duration: 1000,
-      easing: "cubicBezier(0.785, 0.135, 0.15, 0.86)",
-      complete: () => {
-        const intro = document.getElementById("intro");
-        if (intro) {
-          intro.style.display = "none";
-        }
-      }
-    });
-    anime({
-      targets: ".right-nav",
-      left: "50px",
-      easing: "cubicBezier(0.785, 0.135, 0.15, 0.86)",
-      delay: 1000
-    });
   }
 
   updateBackground(background: string, color: string, cb: () => void) {
@@ -113,7 +77,7 @@ class Home extends React.Component<{}, IState> {
   }
 
   handleRenderWork() {
-    this.updateBackground("#000", "#FFF", () => {
+    this.updateBackground("#17181A", "#FFF", () => {
       this.setState({ currentPart: Parts.WORK });
     });
   }
