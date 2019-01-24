@@ -41,9 +41,30 @@
       cursor: pointer;
       margin-left: 20px;
       margin-top: 50px;
-      transition: color 0.3s;
+      transform: perspective(1px) translateZ(0);
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+      transition: color 0.5s;
+      position: relative;
+      opacity: 0;
+      &::after {
+        content: "";
+        background: #feca57;
+        height: 100%;
+        width: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        transition: transform 0.4s, width 0.7s;
+      }
       &:hover {
-        color: white;
+        color: black;
+        &::after {
+          width: 100%;
+          transform: scaleX(1);
+        }
       }
     }
     .project-basic-info {

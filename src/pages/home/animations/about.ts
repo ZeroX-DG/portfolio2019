@@ -8,16 +8,15 @@ function handleTransitionFromAboutToWork(cb: () => void) {
     targets: ".about .overflow-image",
     width: 0,
     duration: 1000,
+    easing: "cubicBezier(0.785, 0.135, 0.15, 0.86)"
+  });
+  anime({
+    targets: ".about",
+    opacity: 0,
+    delay: 300,
+    duration: 1000,
     easing: "cubicBezier(0.785, 0.135, 0.15, 0.86)",
-    complete: () => {
-      anime({
-        targets: ".about",
-        opacity: 0,
-        duration: 1000,
-        easing: "cubicBezier(0.785, 0.135, 0.15, 0.86)",
-        complete: cb
-      });
-    }
+    complete: cb
   });
 }
 
