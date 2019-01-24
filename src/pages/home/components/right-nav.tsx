@@ -8,8 +8,8 @@ interface IProps {
 
 class RightNav extends React.Component<IProps> {
   private activeBar: React.RefObject<HTMLDivElement> = React.createRef();
-  componentWillUpdate(props: any) {
-    if (props.active !== this.props.active) {
+  componentDidUpdate(prevProps: any) {
+    if (prevProps.active !== this.props.active) {
       anime({
         targets: ".right-nav .active-bar",
         width: "0px",

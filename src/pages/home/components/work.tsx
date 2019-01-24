@@ -50,7 +50,11 @@ interface IState {
   isAnimating: boolean;
 }
 
-class Work extends React.Component<{}, IState> {
+interface IProps {
+  onGoToPreviousPart: () => void;
+}
+
+class Work extends React.Component<IProps, IState> {
   state = {
     index: 0,
     currentProject: Projects[0],
@@ -61,6 +65,7 @@ class Work extends React.Component<{}, IState> {
     this.displayProjectInfo();
     document.getElementById("work").onwheel = (e: WheelEvent) => {
       const { index, isAnimating } = this.state;
+      const { onGoToPreviousPart } = this.props;
       const direction = e.deltaY < 0 ? "up" : "down";
       if (direction === "down" && !isAnimating) {
         const newIndex = index + 1;
@@ -95,6 +100,8 @@ class Work extends React.Component<{}, IState> {
               )
             );
           });
+        } else {
+          onGoToPreviousPart();
         }
       }
     };
