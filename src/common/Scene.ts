@@ -18,7 +18,9 @@ export class Scene {
       );
       console.log(nextScene);
       animation(cb);
+      return;
     }
+    cb();
   }
 
   previous(cb: () => void) {
@@ -30,7 +32,9 @@ export class Scene {
       );
       console.log(previousScene);
       animation(cb);
+      return;
     }
+    cb();
   }
 }
 

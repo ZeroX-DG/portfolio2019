@@ -17,6 +17,9 @@ class RightNav extends React.Component<IProps> {
         easing: "linear",
         complete: () => {
           const activeEl = document.querySelector(".right-nav .active");
+          if (!activeEl) {
+            return;
+          }
           const activeY = activeEl.getBoundingClientRect().top + 11;
           this.activeBar.current.style.top = `${activeY}px`;
           anime({
@@ -36,7 +39,9 @@ class RightNav extends React.Component<IProps> {
         <ul>
           <li className={active === "about" ? "active" : ""}>About me</li>
           <li className={active === "work" ? "active" : ""}>Selected works</li>
-          <li className={active === "awards" ? "active" : ""}>Awards</li>
+          <li className={active === "achievement" ? "active" : ""}>
+            Achievements
+          </li>
           <li className={active === "articles" ? "active" : ""}>Articles</li>
           <li className={active === "contact" ? "active" : ""}>Contact me</li>
         </ul>

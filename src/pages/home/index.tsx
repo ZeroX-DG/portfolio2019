@@ -8,6 +8,7 @@ import Work from "./components/work";
 import RightNav from "./components/right-nav";
 import { Parts } from "./common";
 import Scenes from "./animations";
+import Achievement from "./components/achievement";
 
 interface IState {
   currentPart: Parts;
@@ -45,7 +46,8 @@ function updateBackground(background: string, color: string) {
 
 const backgroundList = {
   [Parts.ABOUT]: () => updateBackground("#FFF", "#000"),
-  [Parts.WORK]: () => updateBackground("#17181A", "#FFF")
+  [Parts.WORK]: () => updateBackground("#17181A", "#FFF"),
+  [Parts.ACHIEVEMENT]: () => updateBackground("#FFF", "#000")
 };
 
 class Home extends React.Component<{}, IState> {
@@ -95,14 +97,18 @@ class Home extends React.Component<{}, IState> {
       return;
     }
     this.setState({ isChangingPart: true }, () => {
-      const nextScene = Scenes.getNextSceneOf(this.state.currentPart);
       Scenes.getScene(this.state.currentPart).next(() => {
+        const nextScene = Scenes.getNextSceneOf(this.state.currentPart);
         const backgroundTransition = backgroundList[nextScene];
         if (backgroundTransition) {
           backgroundTransition();
+          this.setState({
+            currentPart: nextScene,
+            isChangingPart: false
+          });
+          return;
         }
         this.setState({
-          currentPart: nextScene,
           isChangingPart: false
         });
       });
@@ -119,9 +125,13 @@ class Home extends React.Component<{}, IState> {
         const backgroundTransition = backgroundList[previousScene];
         if (backgroundTransition) {
           backgroundTransition();
+          this.setState({
+            currentPart: previousScene,
+            isChangingPart: false
+          });
+          return;
         }
         this.setState({
-          currentPart: previousScene,
           isChangingPart: false
         });
       });
@@ -136,8 +146,12 @@ class Home extends React.Component<{}, IState> {
         {currentPart === Parts.INTRO && <Intro />}
         {currentPart === Parts.ABOUT && <About />}
         {currentPart === Parts.WORK && (
-          <Work onGoToPreviousPart={this.goToPreviousPart.bind(this)} />
+          <Work
+            onGoToPreviousPart={this.goToPreviousPart.bind(this)}
+            onGoToNextPart={this.goToNextPart.bind(this)}
+          />
         )}
+        {currentPart === Parts.ACHIEVEMENT && <Achievement />}
       </div>
     );
   }

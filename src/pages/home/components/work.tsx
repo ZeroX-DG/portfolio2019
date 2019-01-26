@@ -52,6 +52,7 @@ interface IState {
 
 interface IProps {
   onGoToPreviousPart: () => void;
+  onGoToNextPart: () => void;
 }
 
 class Work extends React.Component<IProps, IState> {
@@ -65,7 +66,7 @@ class Work extends React.Component<IProps, IState> {
     this.displayProjectInfo();
     document.getElementById("work").onwheel = (e: WheelEvent) => {
       const { index, isAnimating } = this.state;
-      const { onGoToPreviousPart } = this.props;
+      const { onGoToPreviousPart, onGoToNextPart } = this.props;
       const direction = e.deltaY < 0 ? "up" : "down";
       if (direction === "down" && !isAnimating) {
         const newIndex = index + 1;
@@ -83,6 +84,8 @@ class Work extends React.Component<IProps, IState> {
               )
             );
           });
+        } else {
+          onGoToNextPart();
         }
       } else if (direction === "up" && !isAnimating) {
         const newIndex = index - 1;
@@ -119,8 +122,7 @@ class Work extends React.Component<IProps, IState> {
       opacity: [1, 0],
       delay: 200,
       duration: 700,
-      easing: "cubicBezier(0.785, 0.135, 0.15, 0.86)",
-      complete: cb
+      easing: "cubicBezier(0.785, 0.135, 0.15, 0.86)"
     });
     anime({
       targets: ".work .project-info",
@@ -128,7 +130,8 @@ class Work extends React.Component<IProps, IState> {
       //@ts-ignore
       delay: anime.stagger(200),
       duration: 600,
-      easing: "cubicBezier(0.785, 0.135, 0.15, 0.86)"
+      easing: "cubicBezier(0.785, 0.135, 0.15, 0.86)",
+      complete: cb
     });
     anime({
       targets: ".work .project-image",
@@ -167,7 +170,7 @@ class Work extends React.Component<IProps, IState> {
             duration: 900,
             easing: "cubicBezier(0.785, 0.135, 0.15, 0.86)"
           });
-        }, 1500);
+        }, 1200);
       }
     });
     anime({
