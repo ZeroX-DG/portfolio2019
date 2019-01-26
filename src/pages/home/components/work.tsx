@@ -63,7 +63,11 @@ class Work extends React.Component<IProps, IState> {
   };
 
   componentDidMount() {
-    this.displayProjectInfo();
+    this.setState({ isAnimating: true }, () => {
+      this.displayProjectInfo(() => {
+        this.setState({ isAnimating: false });
+      });
+    });
     document.getElementById("work").onwheel = (e: WheelEvent) => {
       const { index, isAnimating } = this.state;
       const { onGoToPreviousPart, onGoToNextPart } = this.props;
@@ -77,10 +81,12 @@ class Work extends React.Component<IProps, IState> {
               this.setState(
                 {
                   index: newIndex,
-                  currentProject: Projects[newIndex],
-                  isAnimating: false
+                  currentProject: Projects[newIndex]
                 },
-                this.displayProjectInfo
+                () =>
+                  this.displayProjectInfo(() => {
+                    this.setState({ isAnimating: false });
+                  })
               )
             );
           });
@@ -96,10 +102,12 @@ class Work extends React.Component<IProps, IState> {
               this.setState(
                 {
                   index: newIndex,
-                  currentProject: Projects[newIndex],
-                  isAnimating: false
+                  currentProject: Projects[newIndex]
                 },
-                this.displayProjectInfo
+                () =>
+                  this.displayProjectInfo(() => {
+                    this.setState({ isAnimating: false });
+                  })
               )
             );
           });
@@ -147,7 +155,7 @@ class Work extends React.Component<IProps, IState> {
     });
   }
 
-  displayProjectInfo() {
+  displayProjectInfo(cb?: () => void) {
     anime({
       targets: ".work .project-name",
       lineHeight: ["160px", "50px"],
@@ -168,7 +176,8 @@ class Work extends React.Component<IProps, IState> {
             //@ts-ignore
             delay: anime.stagger(300),
             duration: 900,
-            easing: "cubicBezier(0.785, 0.135, 0.15, 0.86)"
+            easing: "cubicBezier(0.785, 0.135, 0.15, 0.86)",
+            complete: cb
           });
         }, 1200);
       }
