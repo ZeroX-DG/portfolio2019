@@ -1,0 +1,70 @@
+.achievement {
+  padding-left: 20%;
+  padding-top: 35vh;
+  box-sizing: border-box;
+  font-family: "Lora";
+  color: black;
+  position: relative;
+  overflow-x: hidden;
+  .title {
+    font-size: 50px;
+    font-weight: 300;
+    display: block;
+    margin: 0;
+  }
+  .hover-image {
+    position: absolute;
+    transition: all 1s;
+    overflow: hidden;
+    max-height: 0;
+    pointer-events: none;
+    img {
+      width: 100%;
+    }
+  }
+
+  #graduation {
+    top: 45vh;
+    right: 300px;
+    width: 600px;
+  }
+
+  #highestscore {
+    top: 55vh;
+    right: 300px;
+    width: 500px;
+  }
+
+  .year-achievement {
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px;
+    box-sizing: border-box;
+    .year {
+      font-size: 30px;
+      margin-bottom: 0px;
+    }
+    .achievements {
+      font-size: 20px;
+      color: black;
+      transition: color 0.1s;
+      li {
+        line-height: 1.5em;
+        color: inherit;
+        transition: color 0.2s;
+        a {
+          color: inherit;
+        }
+        .highlighted {
+          cursor: pointer;
+        }
+        &:hover {
+          color: black;
+        }
+      }
+      &.on-hover {
+        color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}

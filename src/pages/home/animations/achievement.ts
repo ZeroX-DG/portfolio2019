@@ -6,7 +6,6 @@ function handleTransitionFromAchievementToWork(cb: () => void) {
   anime({
     targets: ".achievement",
     opacity: 0,
-    delay: 300,
     duration: 1000,
     easing: "cubicBezier(0.785, 0.135, 0.15, 0.86)",
     complete: cb
