@@ -21,7 +21,8 @@
       }
     }
   }
-  &.work-section {
+  &.work-section,
+  &.articles-section {
     .active {
       color: white;
     }
