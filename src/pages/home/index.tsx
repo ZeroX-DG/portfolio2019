@@ -5,6 +5,7 @@ import "./home.scss";
 import Intro from "./components/intro";
 import About from "./components/about";
 import Work from "./components/work";
+import Articles from "./components/articles";
 import RightNav from "./components/right-nav";
 import { Parts } from "./common";
 import Scenes from "./animations";
@@ -47,7 +48,8 @@ function updateBackground(background: string, color: string) {
 const backgroundList = {
   [Parts.ABOUT]: () => updateBackground("#FFF", "#000"),
   [Parts.WORK]: () => updateBackground("#17181A", "#FFF"),
-  [Parts.ACHIEVEMENT]: () => updateBackground("#FFF", "#000")
+  [Parts.ACHIEVEMENT]: () => updateBackground("#FFF", "#000"),
+  [Parts.ARTICLES]: () => updateBackground("#17181A", "#FFF")
 };
 
 class Home extends React.Component<{}, IState> {
@@ -152,6 +154,7 @@ class Home extends React.Component<{}, IState> {
           />
         )}
         {currentPart === Parts.ACHIEVEMENT && <Achievement />}
+        {currentPart === Parts.ARTICLES && <Articles />}
       </div>
     );
   }

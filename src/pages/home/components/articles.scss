@@ -1,0 +1,80 @@
+.articles {
+  padding-left: 20%;
+  padding-top: 10vh;
+  box-sizing: border-box;
+  font-family: "Lora";
+  color: white;
+  position: relative;
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100%;
+  .title {
+    font-size: 50px;
+    font-weight: 300;
+    display: block;
+    margin: 0;
+  }
+  .sub-text {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .articles-list {
+    .article {
+      width: 50%;
+      margin-top: 80px;
+      display: inline-block;
+      padding: 20px;
+      box-sizing: border-box;
+      vertical-align: top;
+      &-title {
+        font-size: 25px;
+        margin-bottom: 20px;
+      }
+      &-description {
+        font-size: 18px;
+        line-height: 1.8em;
+      }
+      &-image {
+        width: 80%;
+      }
+      .read-more {
+        a {
+          color: white;
+          font-size: 20px;
+          text-decoration: none;
+          position: relative;
+          &::after {
+            height: 2px;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 0;
+            background: white;
+            content: "";
+            transition: width 0.5s;
+          }
+          &:hover:after {
+            width: 100%;
+          }
+        }
+      }
+      &.featured {
+        width: 100%;
+        .article-image {
+          width: 30%;
+          display: inline-block;
+          vertical-align: top;
+        }
+        .article-info {
+          display: inline-block;
+          vertical-align: top;
+          width: 70%;
+          padding: 10px 20px;
+          box-sizing: border-box;
+          .article-title {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}
