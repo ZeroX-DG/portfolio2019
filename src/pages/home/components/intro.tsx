@@ -61,6 +61,8 @@ class Intro extends React.PureComponent<{}, IState> {
             <p className="message">
               Hi! I'm a <span id="role">web developer</span> from Vietnam.
             </p>
+            <div className="scroll-down-btn"></div>
+            <p className="scroll-text">All good things come to those who scroll</p>
           </div>
         </div>
       </div>
