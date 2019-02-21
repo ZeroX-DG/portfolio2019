@@ -19,6 +19,7 @@
     "typescript": "^3.2.4"
   },
   "dependencies": {
+    "@mdi/font": "^3.4.93",
     "animejs": "^3.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",

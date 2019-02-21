@@ -3,5 +3,6 @@ export enum Parts {
   ABOUT = "about",
   WORK = "work",
   ACHIEVEMENT = "achievement",
-  ARTICLES = "articles"
+  ARTICLES = "articles",
+  CONTACT = "contact"
 }
