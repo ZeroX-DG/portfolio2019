@@ -5,17 +5,21 @@ import "./work.scss";
 import SnippetStoreIMG from "../../../../static/snippetstore.png";
 //@ts-ignore
 import NoteConnectIMG from "../../../../static/noteconnect.png";
+//@ts-ignore
+import BoostnoteIMG from "../../../../static/boostnote.png";
 
 class Project {
   name: string;
   description: string;
   info: [{ label: string; value: string }];
   image: string;
+  link: string;
   constructor(data) {
     this.name = data.name;
     this.description = data.description;
     this.info = data.info;
     this.image = data.image;
+    this.link = data.link;
   }
 }
 
@@ -29,18 +33,31 @@ const Projects: Project[] = [
       { label: "Role", value: "Front end" },
       { label: "Year", value: "2018" }
     ],
-    image: SnippetStoreIMG
+    image: SnippetStoreIMG,
+    link: "https://github.com/ZeroX-DG/SnippetStore"
   }),
   new Project({
     name: "NoteConnect",
     description:
-      "My first commercial product. This is a note-taking app that allows visualizing relationships between notes with links.",
+      "This is a note-taking app that allows visualizing relationships between notes with links. This is my first closed source project that I created.",
     info: [
       { label: "Context", value: "Startup" },
       { label: "Role", value: "Full stack" },
       { label: "Year", value: "2018" }
     ],
     image: NoteConnectIMG
+  }),
+  new Project({
+    name: "Boostnote",
+    description:
+      "I'm currently maintaining this app. This app is an open source note-taking app that used markdown for faster note-taking process. It received more than 12k stars on GitHub as of 2019",
+    info: [
+      { label: "Context", value: "Startup" },
+      { label: "Role", value: "Full stack" },
+      { label: "Year", value: "2018" }
+    ],
+    image: BoostnoteIMG,
+    link: "https://github.com/BoostIO/Boostnote"
   })
 ];
 
@@ -197,6 +214,10 @@ class Work extends React.Component<IProps, IState> {
     });
   }
 
+  goToLink(url: string) {
+    window.open(url, "_blank");
+  }
+
   render() {
     const { currentProject } = this.state;
     return (
@@ -217,9 +238,14 @@ class Work extends React.Component<IProps, IState> {
                 ))}
               </ul>
             </div>
-            <button className="view-project hvr-sweep-to-right">
-              View project
-            </button>
+            {currentProject.link && (
+              <button
+                className="view-project hvr-sweep-to-right"
+                onClick={() => this.goToLink(currentProject.link)}
+              >
+                View project
+              </button>
+            )}
           </div>
           <div className="project-image">
             <img src={currentProject.image} />
