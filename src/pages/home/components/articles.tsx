@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./articles.scss";
+import anime from "animejs";
 
 // @ts-ignore
 import ArticleResizableDiv from "../../../../static/article-resizable-div.gif";
@@ -13,6 +14,16 @@ import ArticleListening from "../../../../static/article-listening.jpeg";
 import ArticleElectron from "../../../../static/article-electron.jpeg";
 
 class Articles extends React.PureComponent {
+  componentDidMount() {
+    // prevent browser from keeping the scroll position
+    document.documentElement.scrollTop = 1;
+    anime({
+      targets: "#articles",
+      opacity: [0, 1],
+      duration: 1500,
+      easing: "cubicBezier(0.785, 0.135, 0.15, 0.86)"
+    });
+  }
   render() {
     return (
       <div className="articles" id="articles">
